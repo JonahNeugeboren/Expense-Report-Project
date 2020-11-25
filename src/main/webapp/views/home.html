@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Home Page</title>
+		
+		<style>
+				#table_div {margin:10px;font-size:1.25em;}
+				table {border-collapse:collapse;border:1px solid #7f7f7f;color:darkslategray}
+				td {border:1px solid #7f7f7f;width:50px;height:50px;text-align:center;color:black}
+				body{color:darkslategray};
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<hi>My Info: </hi>
+			<label id="fname" name="fname"></label>
+			<label id="lname" name="lname"></label>
+			<label id="email" name="email"></label>
+			<form id="fname_form" method="post" action="/ExpenseReportProject/ExpenseReportServlet/UpdateFName">
+				<label for="nfname">Upadate first name</label>
+				<input name="nfname" type="text">
+				<input type="submit" value="Submit">
+			</form>
+			<form id="lname_form" method="post" action="/ExpenseReportProject/ExpenseReportServlet/UpdateLName">
+				<label for="nlname">Upadate last name</label>
+				<input name="nlname" type="text">
+				<input type="submit" value="Submit">
+			</form>
+			<form id="email_form" method="post" action="/ExpenseReportProject/ExpenseReportServlet/UpdateEmail">
+				<label for="nemail">Upadate email</label>
+				<input name="nemail" type="email">
+				<input type="submit" value="Submit">
+			</form>
+			<form id="password_form" method="post" action="/ExpenseReportProject/ExpenseReportServlet/Password">
+				<label for="npassword">Upadate password</label>
+				<input name="npassword" type="password">
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+		<div class="container">
+			<h1>Expense Reports</h1>
+		</div>
+		<br>
+		<div id="table_div"></div>
+		<br>
+		<div class="container">
+			<h1>Submit Expense Reports</h1>
+
+			<form id="form" method="post" action="../ExpenseReportServlet/SubmitService" enctype="multipart/form-data">
+				<label for="amount">Enter the amount of your requeted reimbursement   $</label>
+				<input type="number" name="amount" required>
+				<br>
+				<label for="file">Uppload a photo of your receipt    </label>
+				<input type="file" name="file" accept='image/*'/>
+				<br>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+		<br>
+		<br>
+		<br>
+		<div class="container" id="admin_panel"> 
+			<form id="admin_form" method="post" action="../ExpenseReportServlet/ApproveService">
+				<label for="amount">Enter the request ID to toggle approved    </label>
+				<input type="number" name="id" required>
+				<br>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+		<div class="container">
+			<form id="logout_form" method="post" action="../ExpenseReportServlet/Logout">
+				<input type="submit" value="logout">
+			</form>
+		</div>
+		<script src="../scripts/home.js"></script>
+	</body>
+</html>
